@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Application Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Transfer Application Form</h2>
+        <form id="transferForm" method="POST" action="process.php">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="youremail@email.com" required>
+
+            <label for="currentInstitution">Current Institution:</label>
+            <input type="text" id="currentInstitution" name="currentInstitution" placeholder="Current Institution" required>
+
+            <label for="newInstitution">New Institution:</label>
+            <input type="text" id="newInstitution" name="newInstitution" placeholder="New Institution" required>
+
+            <label for="reason">Reason for Transfer:</label>
+            <textarea id="reason" name="reason" placeholder="Explain your reason for transfer" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
