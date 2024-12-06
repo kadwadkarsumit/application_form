@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer Application Form</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donation Application Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h2>Transfer Application Form</h2>
-        <form id="transferForm" method="POST" action="process.php">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+  <div class="form-container">
+    <h1>Blood Donation Application Form</h1>
+    <form id="bloodDonationForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="youremail@email.com" required>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
 
-            <label for="currentInstitution">Current Institution:</label>
-            <input type="text" id="currentInstitution" name="currentInstitution" placeholder="Current Institution" required>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
 
-            <label for="newInstitution">New Institution:</label>
-            <input type="text" id="newInstitution" name="newInstitution" placeholder="New Institution" required>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="18" max="65" required>
 
-            <label for="reason">Reason for Transfer:</label>
-            <textarea id="reason" name="reason" placeholder="Explain your reason for transfer" required></textarea>
+      <label for="bloodGroup">Blood Group:</label>
+      <select id="bloodGroup" name="bloodGroup" required>
+        <option value="">--Select--</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select>
 
-            <button type="submit">Submit Application</button>
-        </form>
-    </div>
-    <script src="script.js"></script>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Display Submitted Data -->
+    <div id="result"></div>
+  </div>
 </body>
 </html>

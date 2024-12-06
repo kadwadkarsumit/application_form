@@ -1,20 +1,29 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize and retrieve form data
+    // Sanitize input data
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
-    $currentInstitution = htmlspecialchars($_POST['currentInstitution']);
-    $newInstitution = htmlspecialchars($_POST['newInstitution']);
-    $reason = htmlspecialchars($_POST['reason']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $age = htmlspecialchars($_POST['age']);
+    $bloodGroup = htmlspecialchars($_POST['bloodGroup']);
+    $address = htmlspecialchars($_POST['address']);
 
-    // Display the submitted information
-    echo "<h2>Transfer Application Submitted</h2>";
-    echo "<strong>Name:</strong> " . $name . "<br>";
-    echo "<strong>Email:</strong> " . $email . "<br>";
-    echo "<strong>Current Institution:</strong> " . $currentInstitution . "<br>";
-    echo "<strong>New Institution:</strong> " . $newInstitution . "<br>";
-    echo "<strong>Reason for Transfer:</strong> " . nl2br($reason) . "<br>";
-} else {
-    echo "Invalid request.";
+    // Prepare JSON response
+    $response = [
+        'status' => 'success',
+        'data' => [
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'age' => $age,
+            'bloodGroup' => $bloodGroup,
+            'address' => $address,
+        ]
+    ];
+
+    // Set header for JSON response
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit;
 }
 ?>
