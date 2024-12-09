@@ -1,36 +1,24 @@
 $(document).ready(function () {
-    $('#bloodDonationForm').on('submit', function (e) {
-      e.preventDefault(); // Prevent form from submitting the traditional way
-  
-      // Serialize form data
-      const formData = $(this).serialize();
-  
-      // Send form data via AJAX
-      $.ajax({
-        url: 'submit.php',
-        type: 'POST',
-        data: formData,
-        success: function (response) {
-          if (response.status === 'success') {
-            // Display submitted data
-            const resultHtml = `
-              <h2>Submitted Information</h2>
-              <p><strong>Name:</strong> ${response.data.name}</p>
-              <p><strong>Email:</strong> ${response.data.email}</p>
-              <p><strong>Phone:</strong> ${response.data.phone}</p>
-              <p><strong>Age:</strong> ${response.data.age}</p>
-              <p><strong>Blood Group:</strong> ${response.data.bloodGroup}</p>
-              <p><strong>Address:</strong> ${response.data.address}</p>
-            `;
-            $('#result').html(resultHtml);
-          } else {
-            $('#result').html('<p>Submission failed. Please try again.</p>');
-          }
-        },
-        error: function () {
-          $('#result').html('<p>There was an error processing your request.</p>');
-        }
-      });
-    });
+  $('#bloodDonationForm').on('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Gather form data
+      const fullName = $('#name').val();
+      const email = $('#email').val();
+      const phone = $('#phone').val();
+      const age = $('#age').val();
+      const bloodGroup = $('#bloodGroup').val();
+      const address = $('#address').val();
+
+      // Display the result
+      $('#result').html(`
+          <h2>Submission Successful!</h2>
+          <p><strong>Name:</strong> ${fullName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Age:</strong> ${age}</p>
+          <p><strong>Blood Group:</strong> ${bloodGroup}</p>
+          <p><strong>Address:</strong> ${address}</p>
+      `).show(); // Show the result div
   });
-  
+});
